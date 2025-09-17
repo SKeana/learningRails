@@ -6,6 +6,10 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def wishlist
+    @books = Book.where(wishlist_status: true)
+  end
+
   # GET /books/1 or /books/1.json
   def show
   end
@@ -60,11 +64,11 @@ class BooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
-      @book = Book.find(params.expect(:id))
+      @book = Book.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.expect(book: [ :title, :author, :year, :read_status, :listened_status ])
+      params.require(:book).permit(:title, :author, :year, :read_status, :listened_status, :wishlist_status)
     end
 end
