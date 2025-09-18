@@ -61,3 +61,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+## adding bootstrap for css styling
+gem 'bootstrap', '~> 5.3'
