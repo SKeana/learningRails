@@ -1,8 +1,15 @@
-<div id="books">
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Books" %>
+
+<h1 class="mb-4">Books</h1>
+
+<div id="books" class="row row-cols-1 row-cols-md-2 g-4">
   <% @books.each do |book| %>
-    <%= render book %>
-    <p>
-      <%= link_to "Show this book", book%>
-    </p>
+    <div class="col">
+      <%= render book %>
+    </div>
   <% end %>
 </div>
+
+<%= link_to "New book", new_book_path, class: "btn btn-primary mt-3" %>

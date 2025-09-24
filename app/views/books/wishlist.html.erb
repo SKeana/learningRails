@@ -1,11 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Wishlist Books</h1>
+<h1 class="mb-4">Wishlist Books</h1>
 
-<div id="wishlist">
+<div id="wishlist" class="row row-cols-1 row-cols-md-2 g-4">
   <% @books.each do |book| %>
-    <%= render book %>
+    <div class="col">
+      <%= render book %>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "Back to all books", books_path %>
+<%= link_to "Back to all books", books_path, class: "btn btn-primary mt-3" %>
